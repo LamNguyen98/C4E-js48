@@ -1,0 +1,44 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box
+}
+
+.width-content {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    display:flex;
+    background-color: aqua;
+    justify-content: space-between;
+}
+
+.header_logo img {
+    height: 80px;
+}
+
+.header_navigation {
+    display: flex;
+}
+
+.header_navigation .menu_item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_navigation .navigation_item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
