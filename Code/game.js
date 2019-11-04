@@ -1,6 +1,44 @@
-let x = 0;
-let y = 0;
-let step = 20;
+function allowDrop(event) {
+ 
+    event.preventDefault();
+}
+function drag(event) {
+    console.log(event)
+    event.dataTransfer.setData("text", event.target.id);
+}
+function drop(event) {
+    console.log("drop",event)
+    event.preventDefault();
+    let data = event.dataTransfer.getData("text");
+    event.target.appendChild(document.getElementById(data))
+    console.log(this) // (document.getElementById(data).cloneNode(true)) : clone drag
+}
+function dragenter (event) {
+    console.log(event)
+}
+let unitLib = {
+    A_soldier: {
+        class: "ally",
+        position: "1_1",
+        img: "",
+        type: "A_soldier",
+        hp: 5,
+        attack: 1,
+        move: 2,
+        range: 2,
+    },
+    E_archer: {
+        class: "enemy",
+        position: "10_1",
+        img: "",
+        type: "E_archer",
+        hp: 2,
+        attack: 2,
+        move: 2,
+        range: 3
+    }
+}
+
 
 let unit1 = {
     class: "ally",
@@ -16,15 +54,14 @@ let unit2 = {
     hp: 2,
     move: 4
 }
-unit20 = {class: "enemy", hp: 2}
-unit21 = {class: "enemy", hp: 4}
+
 let unit3 = {
     class: "ally",
     hp: 5
 }
 let unit4 = { class: "empty" }
 
-let board = [unit4, unit1, unit3, unit4, unit4, unit4, unit2, unit21]
+let board = [unit4, unit1, unit3, unit4, unit4, unit4, unit2, unit2]
 
 function movement(board, unit) {
     for (i = 1; i <= unit.move; i++) {
@@ -45,19 +82,17 @@ function attack(board, unit, maxLocation) {
         let enemyLocation = unit.x + j
         if (board[enemyLocation].class == "enemy") {
             board[enemyLocation].hp -= unit.atk
-            if(board[enemyLocation].hp < 1 && enemyLocation <= maxLocation) {unit.x = enemyLocation}
+            if (board[enemyLocation].hp < 1 && enemyLocation <= maxLocation) { unit.x = enemyLocation }
             break
         }
     }
 }
 
-movement(board, unit1)
-console.log(unit1.x)
+function endturn() {
+    move();
+    attack()
+}
 
-attack(board, unit1, 7)
-
-console.log(unit1.x)
-
-console.log("board[5]:", board[5].hp)
-console.log("board[6]:", board[6].hp)
-console.log("board[7]:", board[7].hp)
+//state: fill?
+// controller : 
+// parent
