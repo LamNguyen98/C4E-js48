@@ -7,37 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game testing</title>
     <link rel="stylesheet" href="game.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="game">
         <div class="upper_board">
             <div class="cellprefix">A1</div>
+            <div class="gamecell" id="0_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="gamecell" id="1_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="gamecell" id="2_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
             <div class="gamecell" id="3_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div class="gamecell" id="4_1"></div>
-            <div class="gamecell" id="5_1"></div>
-            <div class="gamecell" id="6_1"></div>
-            <div class="gamecell" id="7_1"></div>
-            <div class="gamecell" id="8_1"></div>
-            <div class="gamecell" id="9_1"></div>
-            <div class="gamecell" id="10_1"></div>
+            <div class="gamecell" id="4_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="5_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="6_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="7_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="8_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="9_1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
             <div class="cellprefix">A2</div>
         </div>
 
         <div class="lower_board">
             <div class="cellprefix">E1</div>
-            <div class="gamecell" id="1_2" ondrop="drop(event)" ondragenter="dragenter(event)" ondragover="allowDrop(event)"></div>
-            <div class="gamecell" id="2_2" ondrop="drop(event)" ondragenter="dragenter(event)" ondragover="allowDrop(event)"></div>
-            <div class="gamecell" id="3_2" ondrop="drop(event)" ondragenter="dragenter(event)" ondragover="allowDrop(event)"></div>
-            <div class="gamecell" id="4_2"></div>
-            <div class="gamecell" id="5_2"></div>
-            <div class="gamecell" id="6_2"></div>
-            <div class="gamecell" id="7_2"></div>
-            <div class="gamecell" id="8_2"></div>
-            <div class="gamecell" id="9_2"></div>
-            <div class="gamecell" id="10_2"></div>
+            <div class="gamecell" id="0_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="1_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="2_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="3_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="4_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="5_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="6_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="7_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="8_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="gamecell" id="9_2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
             <div class="cellprefix">E2</div>
         </div>
     </div>
@@ -55,11 +58,12 @@
         <div class="inhand"></div>
         <div class="inhand"></div>
     </div>
-    
+
+    <button onclick="setUp()">SET UP</button>
+    <!-- <button onclick="test()">TEST</button> -->
     <button onclick="endturn()">END TURN</button>
 
 
-parrent note
 
 
 

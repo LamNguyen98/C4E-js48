@@ -8,16 +8,14 @@ let unit1 = {
     hp: 4,
     move: 5,
     atkRange: 2,
-    x: 1,
-    y: 1
+    x: 0,
+    y: 0
 }
 let unit2 = {
     class: "enemy",
     hp: 2,
     move: 4
 }
-unit20 = {class: "enemy", hp: 2}
-unit21 = {class: "enemy", hp: 4}
 let unit3 = {
     class: "ally",
     hp: 5
