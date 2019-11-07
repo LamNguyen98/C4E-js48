@@ -15,7 +15,9 @@ function drop(event) {
 }
 
 let unit = {
+    atk: 5,
     move: 2,
+    atkRange: 2,
     x: 0,
     y: 0,
 }
@@ -31,10 +33,15 @@ let unit1 = {
     relation: "ally"
 }
 let unit2 = {
-    relation: "enemy"
+    relation: "enemy",
+    hp: 5
+}
+let unit3 = {
+    relation: "enemy",
+    hp: 6
 }
 
-let upperBoard = ["", "", unit1, unit2, "", unit1, "", "", "", ""]
+let upperBoard = ["", "", unit2, unit3, "", unit1, "", "", "", ""]
 let lowerBoard = ["", "", "", "", "", "", "", "", "", ""]
 
 function setUp() {
@@ -57,7 +64,7 @@ function movement(board, unit) {
     for (i = 1; i <= unit.move; i++) {
         let location1 = Number(currentLocation) + Number(i)
         if (board[location1].relation == "ally") { }
-        else if (board[location1].relation == "enemy") { return }
+        else if (board[location1].relation == "enemy") { break }
         else { finalLocation = location1 }
     }
     board[currentLocation] = ""
@@ -65,18 +72,37 @@ function movement(board, unit) {
     console.log(board)
 }
 
-function attack(board, unit, maxLocation) {
+function attack(board, unit) {
+    let currentLocation = board.indexOf(unit)
+    let finalLocation = currentLocation
+    let maxLocation = board.indexOf(unit) + unit.move
     for (j = 1; j <= unit.atkRange; j++) {
-        let enemyLocation = unit.x + j
+        let enemyLocation = Number(currentLocation) + Number(j)
+        console.log(enemyLocation)
         if (board[enemyLocation].relation == "enemy") {
             board[enemyLocation].hp -= unit.atk
-            if (board[enemyLocation].hp < 1 && enemyLocation <= maxLocation) { unit.x = enemyLocation }
-            break
+            if (board[enemyLocation].hp < 1) {
+                board[enemyLocation] = "";
+                if (enemyLocation <= maxLocation) { finalLocation = enemyLocation }
+                break
+            }
         }
     }
+    board[currentLocation] = ""
+    board[finalLocation] = unit
 }
 
 function endturn() {
-    movement(upperBoard, unit);
-    // attack(upperBoard, unit);
+    // movement(upperBoard, unit);
+    attack(upperBoard, unit);
+    console.log(upperBoard)
 }
+
+function update() {
+    let newCell = upperBoard.indexOf(unit) + "_1"
+    let newUnit = document.getElementById("img2")
+    let cell = document.getElementById(newCell)
+    cell.appendChild(newUnit)
+}
+
+
