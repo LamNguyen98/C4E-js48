@@ -20,6 +20,7 @@ let unit = {
     atkRange: 2,
     x: 0,
     y: 0,
+    isAttack: "no"
 }
 
 $(".gamecell").on("drop", function (event) {
@@ -38,10 +39,10 @@ let unit2 = {
 }
 let unit3 = {
     relation: "enemy",
-    hp: 6
+    hp: 8
 }
 
-let upperBoard = ["", "", unit2, unit3, "", unit1, "", "", "", ""]
+let upperBoard = ["", "", "", unit2, unit3, unit1, "", "", "", ""]
 let lowerBoard = ["", "", "", "", "", "", "", "", "", ""]
 
 function setUp() {
@@ -61,40 +62,46 @@ function setUp() {
 function movement(board, unit) {
     let currentLocation = board.indexOf(unit)
     let finalLocation = currentLocation
+    var maxLocation = board.indexOf(unit) + unit.move
+    console.log(maxLocation)
     for (i = 1; i <= unit.move; i++) {
         let location1 = Number(currentLocation) + Number(i)
         if (board[location1].relation == "ally") { }
-        else if (board[location1].relation == "enemy") { break }
+        else if (board[location1].relation == "enemy") {
+            attack(board, unit)
+            if (board[location1] == "" && location1 <= maxLocation) {
+                finalLocation = location1
+            }
+        }
         else { finalLocation = location1 }
     }
     board[currentLocation] = ""
     board[finalLocation] = unit
-    console.log(board)
+    attack(board, unit)
 }
 
+
 function attack(board, unit) {
-    let currentLocation = board.indexOf(unit)
-    let finalLocation = currentLocation
-    let maxLocation = board.indexOf(unit) + unit.move
-    for (j = 1; j <= unit.atkRange; j++) {
-        let enemyLocation = Number(currentLocation) + Number(j)
-        console.log(enemyLocation)
-        if (board[enemyLocation].relation == "enemy") {
-            board[enemyLocation].hp -= unit.atk
-            if (board[enemyLocation].hp < 1) {
-                board[enemyLocation] = "";
-                if (enemyLocation <= maxLocation) { finalLocation = enemyLocation }
+    if (unit.isAttack == "no") {
+        let currentLocation = board.indexOf(unit)
+        for (j = 1; j <= unit.atkRange; j++) {
+            let enemyLocation = Number(currentLocation) + Number(j)
+            console.log(enemyLocation)
+            if (board[enemyLocation].relation == "enemy") {
+                board[enemyLocation].hp -= unit.atk
+                if (board[enemyLocation].hp < 1) {
+                    board[enemyLocation] = "";
+                }
+                unit.isAttack = "yes"
                 break
             }
         }
     }
-    board[currentLocation] = ""
-    board[finalLocation] = unit
+    else { }
 }
-
 function endturn() {
-    // movement(upperBoard, unit);
-    attack(upperBoard, unit);
+    movement(upperBoard, unit);
+    update()
     console.log(upperBoard)
 }
 
@@ -104,5 +111,7 @@ function update() {
     let cell = document.getElementById(newCell)
     cell.appendChild(newUnit)
 }
-
+function reset() {
+    unit.isAttack = "no"
+}
 
