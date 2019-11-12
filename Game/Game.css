@@ -1,7 +1,7 @@
 body {
     user-select: none;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -14,20 +14,15 @@ div * {
 #game {
     margin: 0 auto;
     background-color: chartreuse;
+    margin: 20px auto;
 }
 .upper_board {
     display: flex;
     justify-content: center;
-    height: 100px;
-    width: 1300px;
-    margin: 20px auto
 }
 .lower_board {
     display: flex;
     justify-content: center;
-    height: 110px;
-    width: 1300px;
-    margin: 20px auto
 }
 .cellprefix {
     position: relative;
@@ -35,9 +30,7 @@ div * {
     background-color: tomato;
     width: 100px;
     height: 100px;
-    float: left;
-    margin: 3px;
-    padding: 15px 0 0 20px;
+    display: flex;
 }
 .gamecell {
     position: relative;
@@ -45,8 +38,7 @@ div * {
     background-color: aquamarine;
     width: 100px;
     height: 100px;
-    float: left;
-    margin: 3px;
+    display: flex;
     cursor: pointer;
     z-index: 0;
     transition: all 0.25s ease-in-out;
@@ -57,11 +49,19 @@ div * {
     z-index: 1;
     transform: translate(10px, -10px);
 }
+.menu {
+    background-color: yellow;
+    /* display: flex;
+    justify-content: right; */
+    margin: 10px 0 10px 700px;
+}
+
+
 #hand {
     background-color: lightsalmon;
-    height: 200px;
-    width: 1100px;
-    margin: 20px auto;
+    /* height: 200px;
+    width: 1100px; */
+    margin: 0 100px 0 100px;
     display: flex;
 
 }
@@ -79,7 +79,7 @@ div * {
     color: #fff;
     background: midnightblue;
     z-index: 1;
-    transform: translate(30px, -30px)
+    transform: translate(5px, -5px)
 }
 .img {
     width: 100px;

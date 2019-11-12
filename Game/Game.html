@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game testing</title>
+    <link rel="stylesheet" href="Game.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <table id="game">
+        <tr class="upper_board">
+            <td class="cellprefix">A1</td>
+            <td class="gamecell" id="1_1"></td>
+            <td class="gamecell" id="2_1"></td>
+            <td class="gamecell" id="3_1"></td>
+            <td class="gamecell" id="4_1"></td>
+            <td class="gamecell" id="5_1"></td>
+            <td class="gamecell" id="6_1"></td>
+            <td class="gamecell" id="7_1"></td>
+            <td class="gamecell" id="8_1"></td>
+            <td class="gamecell" id="9_1"></td>
+            <td class="gamecell" id="10_1"></td>
+            <td class="cellprefix">E1</td>
+        </tr>
+
+        <tr class="lower_board">
+            <td class="cellprefix">A2</td>
+            <td class="gamecell" id="1_2"></td>
+            <td class="gamecell" id="2_2"></td>
+            <td class="gamecell" id="3_2"></td>
+            <td class="gamecell" id="4_2"></td>
+            <td class="gamecell" id="5_2"></td>
+            <td class="gamecell" id="6_2"></td>
+            <td class="gamecell" id="7_2"></td>
+            <td class="gamecell" id="8_2"></td>
+            <td class="gamecell" id="9_2"></td>
+            <td class="gamecell" id="10_2"></td>
+            <td class=" cellprefix">E2</td>
+        </tr>
+    </table>
+
+    <div class="menu">
+        <button onclick="setUp()">SET UP</button>
+        <button onclick="endturn()">END TURN</button>
+        <button onclick="reset()">RESET</button>
+    </div>
+
+
+
+    <div id="hand">
+        <div class="inhand">
+            <img id="img1" class="img" onclick="assign(event)"
+                src="https://i.pinimg.com/originals/9a/29/34/9a29345874ecfdba343c2254057a1067.jpg" />
+        </div>
+        <div class="inhand">
+            <img id="img2" class="img"
+                src="https://1.bp.blogspot.com/-lnpEOHOm-Vs/XQ70fehtB1I/AAAAAAAAJKs/dOuy9LqwAN0KiqHq-rd4qYdWMaYxEejCgCLcBGAs/s1600/kirito%2Bfierce%2Bswordsman.jpg" />
+        </div>
+        <div class="inhand">
+            <img id="img3" class="img"
+                src="https://vignette.wikia.nocookie.net/sao-abridged/images/e/ee/Yui.png/revision/latest?cb=20190905135543" />
+        </div>
+        <div class="inhand">
+            <img id="img4" class="img"
+                src="https://vignette.wikia.nocookie.net/swordartonline/images/c/cb/Klein-RL.png/revision/latest?cb=20130814173542" />
+        </div>
+        <div class="inhand">
+            <img id="img5" class="img" src="https://images-na.ssl-images-amazon.com/images/I/71gifm2eBDL._SX425_.jpg" />
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="Game.js"></script>
+</body>
+
+</html>
