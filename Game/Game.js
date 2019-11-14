@@ -1,3 +1,17 @@
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("text");
+    event.target.appendChild(document.getElementById(data));
+}
+
 let unit = {
     atk: 5,
     move: 2,
@@ -19,23 +33,27 @@ let unit3 = {
     hp: 8
 }
 
-let Player1 = { relation: "player", hp: 20 }
-let Player2 = { relation: "player", hp: 20 }
+let Player1 = { relation: "player", hp: 20 };
+let Player2 = { relation: "player", hp: 20 };
 
-let upperBoard = [Player1, "", "", "", "", "", "", "", "", "", "", Player2]
-let lowerBoard = [Player1, "", "", "", "", "", "", "", "", "", "", Player2]
+let upperBoard = [Player1, "", "", "", "", "", "", "", "", "", "", Player2];
+let lowerBoard = [Player1, "", "", "", "", "", "", "", "", "", "", Player2];
 
-function assign(event) {
-    console.log(event)
+let upBoard = $("#upBoard").find(".gamecell" + ".img")
+
+
+
+// for (i = 0; i < upBoard.length; i++) {
+//     cells = upBoard[i];
+
+// }
+
+
+function test() {
+    console.log(upBoard)
 }
 
 
-// $(".gamecell").on("drop", function (event) {
-//     event.preventDefault();
-//     event.stopPropagation();
-//     unit.x = this.id.split("_")[0];
-//     unit.y = this.id.split("_")[1];
-// })
 
 function setUp() {
     let current = unit.x.valueOf()
@@ -122,4 +140,3 @@ function reset() {
 function gameWon() {
     alert("You win")
 }
-
