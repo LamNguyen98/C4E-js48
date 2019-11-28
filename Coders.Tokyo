@@ -1,5 +1,7 @@
 /* Bài 6: Array quan trọng thứ tự, các method liên quan đến thứ tự nhiều hơn, còn Object quan trọng tên gọi (các cặp key-value)
-Bài 8: --a là thực hiện phép tính rồi gán kết quả, a++ là lấy kết quả cũ để tính rồi mới thực hiện, nên b1 sẽ là 9 + 9 = 18, b2 là 
+Bài 8: --a là thực hiện phép tính rồi gán kết quả, a++ là lấy kết quả cũ để tính rồi mới thực hiện, nên bài1 sẽ là 9 + 9 = 18, bài2 là 
 a-- + b++ - ++b - ++a = 10 + 18 - 20 - 10 = -2
+Bài 12: Khi lưu giá trị của array hay object, chúng sẽ được lưu trữ vào các vị trí khác nhau nên khi so sánh thì sẽ trả lại false vì 2
+array hay object không là một, bài3 trả false vì không so sánh được string
 
 */
