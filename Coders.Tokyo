@@ -3,6 +3,6 @@ Bài 8: --a là thực hiện phép tính rồi gán kết quả, a++ là lấy 
 a-- + b++ - ++b - ++a = 10 + 18 - 20 - 10 = -2
 Bài 12: Khi lưu giá trị của array hay object, chúng sẽ được lưu trữ vào các vị trí khác nhau nên khi so sánh thì sẽ trả lại false vì 2
 array hay object không là một, bài3 trả false vì không so sánh được string
-Baif 14: for in loop qua index còn for of loop qua giá trị
+Baif 14: for in loop qua key/index còn for of loop qua value
 
 */
